@@ -1,0 +1,51 @@
+// Place all the styles related to the fields controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+	box-sizing: border-box;
+}
+
+.field-block-item {
+	margin: 15px 10px;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+	width: 25%;
+	float: left;
+}
+
+.field-block-board {
+	height: 1000px;
+}
+
+.field-block-title {
+	display: block;
+	padding: 8px 9px;
+	line-height: 20px;
+	margin-bottom: 8px;
+	background-size: cover;
+}
+
+.field-block-list {
+	display: flex;
+}
+
+.field-board-title {
+	display: box;
+}
+
+.btn-edit {
+	float: right;
+	padding: 8px 8px;
+	background-color: #f8f8f8;
+	border-radius: 5px;
+}
+
+h2 {
+	display: inline;
+}
+
+.field-detail {
+	display: block;
+	margin: 10px 0 0 20px;
+}

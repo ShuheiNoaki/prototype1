@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @memo.title %>
+</p>
+
+<p>
+  <strong>日付</strong>
+  <%= @memo.date %>
+</p>
+
+<p>
+  <strong>作業記録</strong>
+  <%= @memo.datail %>
+</p>
+
+<%= link_to '編集', edit_memo_path(@memo) %> |
+<%= link_to '戻る', memos_path %>

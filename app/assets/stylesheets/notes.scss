@@ -1,0 +1,53 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+	box-sizing: border-box;
+}
+
+
+.note-block-board {
+	display: inline-block;
+	width: 100%;
+}
+
+.note-block {
+	display: inline-block;
+	float: left;
+	width: 25%;
+	margin: 15px 10px;
+	padding: 10px 10px;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+}
+
+.note-block h2 {
+	font-size: 18px;
+}
+
+.crop-name {
+	text-align: right;
+}
+
+.memo-box {
+	background-color: #fff;
+	margin: 5px 2px;
+	width: 100%;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+.memo-box-link a{
+	margin: 5px 10px;
+	float: left;
+	display: inline-block;
+	width: 100%;
+}
+
+.memo-box-date {
+	float: right;
+	display: block;
+	margin-right: 5px;
+}

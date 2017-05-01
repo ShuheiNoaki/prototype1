@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmname: MyString
+  : 
+  area: MyString
+  prefectures: MyString
+  city: MyString
+
+two:
+  farmname: MyString
+  : 
+  area: MyString
+  prefectures: MyString
+  city: MyString

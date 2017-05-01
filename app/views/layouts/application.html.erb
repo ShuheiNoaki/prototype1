@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RemoteFarm</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="header">
+	<div class="header-logo">RemoteFarm</div>
+	<div class="header-list">
+		<a href="#">農場をさがす</a>
+		<a href="#">RemoteFarmとは</a>
+		<a href="#">お問い合わせ</a>
+		<a href="#" class="fa fa-facebook"></a>
+		<a href="#" class="fa fa-twitter"></a>
+	</div>
+</div>
+
+<div class="main">
+	<%= yield %>
+</div>
+
+
+<div class="footer">
+	<div class="footer-logo">RemoteFarm</div>
+	<div class="footer-list">
+		<ul>
+			<li>FAQ</li>
+			<li>プライバシーポリシー</li>
+			<li>運営会社</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

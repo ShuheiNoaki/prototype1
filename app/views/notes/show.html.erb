@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>作付開始日</strong>
+  <%= @note.start_date %>
+</p>
+
+<p>
+  <strong>作付終了日</strong>
+  <%= @note.finished_date %>
+</p>
+
+<p>
+  <strong>栽培品目</strong>
+  <% @note.crops.each do |crop| %>
+  	<%= crop.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>品種</strong>
+  <% @note.crop_types.each do |type| %>
+  	<%= type.name %>
+  <% end %>
+</p>
+
+<%= link_to '記録帳を編集', edit_note_path(@note) %> |
+<%= link_to '戻る', notes_path %>

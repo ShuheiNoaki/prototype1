@@ -1,0 +1,33 @@
+<%= form_for(@field) do |f| %>
+  <% if @field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
+      <ul>
+      <% @field.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, value="圃場名称" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :area, value="栽培面積" %><br>
+    <%= f.text_field :area %><strong>ha</strong>
+  </div>
+  <div class="field">
+    <%= f.label :detail, value="詳細" %><br>
+    <%= f.text_area :detail %>
+  </div>
+  <div class="field">
+    <%= f.label :farm_id, value="農場id" %><br>
+    <%= f.number_field :farm_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit value="保存" %>
+  </div>
+<% end %>

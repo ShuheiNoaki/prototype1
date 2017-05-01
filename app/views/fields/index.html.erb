@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="field-board-title">
+<h1>圃場リスト</h1>
+	<div class="btn-edit">
+		<%= link_to '圃場の追加', new_field_path %> 
+	</div>
+</div>
+
+<div class="field-block-board">
+	<ul class="field-block-list">
+		<% @fields.each do |field| %>
+		<li class="field-block-item">
+			<%= link_to field.name, field, class: "field-block-title" %>
+<!--   			<p><%= field.area %> ha</p>	 -->		
+		</li>
+		<% end %>
+	</ul>
+</div>
+<br>
+
+<%= link_to '圃場を新規作成', new_field_path %>

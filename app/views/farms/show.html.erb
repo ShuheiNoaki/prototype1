@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @farm.farmname %>
+</h2>
+
+<p>
+  <strong>栽培面積：</strong>
+  <%= @farm.area %>
+</p>
+
+<p>
+  <strong>生産地域：</strong>
+  <%= @farm.prefecture + @farm.city %>
+</p>
+
+<p>
+	<strong>栽培品目：</strong>
+	<% @farm.crops.each do |crop| %>
+	<%= crop.name %>
+	<% end %>
+</p>
+
+<%= link_to '編集', edit_farm_path(@farm) %> |
+<%= link_to '戻る', farms_path %>

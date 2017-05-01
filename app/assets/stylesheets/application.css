@@ -1,0 +1,83 @@
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+li {
+	list-style: none;
+}
+
+a {
+	color: #428bca;
+}
+
+.header {
+	background-color: #fff;
+	height: 70px;
+	width: 100%;
+	border-bottom: 2px solid #dee7ec;
+	position: fixed;
+	z-index: 10;
+}
+
+.header-logo {
+	float: left;
+	font-size: 36px;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+.header-list {
+	float: right;
+	padding-right: 40px;
+}
+
+
+.header-list a {
+	display: block;
+	color: black;
+	background-color: transparent;
+	float: left;
+	font-size: 20px;
+	padding: 0 20px;
+	line-height: 85px;
+}
+
+
+.main {
+	padding: 80px 60px;
+}
+
+.footer {
+	color: #fff;
+	height: 120px;
+	background-color: #464c56;
+	padding: 40px;
+	width: 100%;
+}
+
+.footer-logo {
+	float: left;
+	font-size: 36px;
+}
+
+.footer-list {
+	font-size: 20px;
+	float: right;
+	padding-right: 40px;
+}
