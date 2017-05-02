@@ -22,6 +22,7 @@
 </div>
 
 <!-- 記録帳 -->
+<div class="note-block-board">
 <% @notes.each do |note| %>
   <div class="note-block">
         <h2><%= note.start_date %> ~ <%= note.finished_date %>の記録帳</h2>
@@ -34,16 +35,25 @@
               <%= type.name %>
             <% end %>
         </div>
+      <% note.memos.each do |memo| %>
+        <div class="memo-box">        
+          <div class="memo-box-link">
+            <%= link_to memo.title, memo %>
+            <div class="memo-box-date"> 
+              <%= memo.date %>
+            </div>
+          </div>
+        </div>
+      <% end %>
         <div class="note-detail">
           <%= link_to '詳しく見る', note %>
         </div>
         <div class="note-delete">
           <%= link_to '削除', note, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
-
-
   </div>
 <% end %>
+</div>
 
 <br>
 <%= link_to '戻る', fields_path %>

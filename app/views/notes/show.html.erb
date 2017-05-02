@@ -24,5 +24,11 @@
   <% end %>
 </p>
 
+<% @memos.each do |memo| %>
+  <strong><%= memo.title %></strong><br>
+  <%= memo.date %><br>
+  <%= memo.detail %>
+<% end %>
+
 <%= link_to '記録帳を編集', edit_note_path(@note) %> |
 <%= link_to '戻る', notes_path %>
