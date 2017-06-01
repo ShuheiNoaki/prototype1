@@ -70,6 +70,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:start_date, :finished_date, :field_id, { :crop_ids => [] }, { :crop_type_ids => [] })
+      params.require(:note).permit(:title, :content, :field_id, { :crop_ids => [] }, { :crop_type_ids => [] })
     end
 end

@@ -11,18 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start_date, value="作付開始日（予定開始日）" %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :finished_date, value="作付終了日（目標終了日）" %><br>
-    <%= f.date_select :finished_date %>
-  </div>
-  <div class="field">
+
+<!--   <div class="field">
     <%= f.label :field_id, value="圃場id" %><br>
     <%= f.number_field :field_id %>
+  </div> -->
+
+  <div class="field">
+    <%= f.label :title, value="タイトル"%>
+    <%= f.text_field :title, size: 60 %>
   </div>
+
+  <div class="field">
+    <%= f.label :content, value="本文" %>
+    <%= f.text_area :content, cols: 100, rows: 10 %>
+  </div>
+
   <div class="field">
     <%= f.label :crop_id, value="栽培品目" %></br>
     <%= collection_check_boxes(:note, :crop_ids, Crop.all, :id, :name ) do |ff| %>

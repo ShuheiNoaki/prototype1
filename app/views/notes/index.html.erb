@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <div class="note-title-block">
-  <h1>記録帳一覧</h1>
+  <h1>投稿一覧</h1>
   <%= link_to '記録帳を新しく作成', new_note_path %>
 </div>
 
 <div class="note-block-board">
-  <% @notes.each do |note| %>
-    <div class="note-block">
-      <h2><%= note.start_date %> ~ <%= note.finished_date %>の記録帳</h2>
-      <div class="crop-name">
-          <% note.crops.each do |crop| %>
-            <%= crop.name %>
-          <% end %>
-            >>  
-          <% note.crop_types.each do |type| %>
-            <%= type.name %>
-          <% end %>
-      </div>
-      <% note.memos.each do |memo| %>
+  <ul class="list-note-block">
+    <% @notes.each do |note| %>  
+      <li class="list-note">
+        <div class="note-block">
+          <h2><%= link_to note.title, note %></h2>
+          <div class="crop-name">
+              <% note.crops.each do |crop| %>
+                <%= crop.name %>
+              <% end %>
+                >>  
+              <% note.crop_types.each do |type| %>
+                <%= type.name %>
+              <% end %>
+          </div>
+        <div class="content-box">
+          <%= truncate(note.content, length: 46, omission: "...") %>
+        </div>
+    <!--       <% note.memos.each do |memo| %>
         <div class="memo-box">        
           <div class="memo-box-link">
             <%= link_to memo.title, memo %>
@@ -27,13 +32,15 @@
             </div>
           </div>
         </div>
-      <% end %>      
-      <div class="note-detail">
-        <%= link_to '詳しく見る', note %>
-      </div>
-      <div class="note-delete">
-        <%= link_to '削除', note, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  <% end %>
+      <% end %>   -->    
+          <div class="note-detail">
+            <%= link_to '詳しく見る', note %>
+          </div>
+          <div class="note-delete">
+            <%= link_to '削除', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
