@@ -2,6 +2,14 @@
 
 <h1 class="list-title">農場一覧</h1>
 
+<div class="farm-search">
+  <%= form_tag(farms_path, method: "get") do %>
+    <%= label_tag :mst_pref_id, "都道府県" %>
+    <%= select_tag 'mst_pref_id', options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
+  <%= submit_tag "検索" %>
+  <% end %>
+</div>
+
 <div class="column-main">
   <ul class="list-farm-info">
     <% @farms.each do |farm| %>
@@ -13,7 +21,8 @@
           <div class="list-farm__body">
             <ul class="list-farm__info">
               <li class="list-farm__info-location">
-                <span><%= farm.prefecture + farm.city %></span>
+                <span><%= farm.mst_pref.name %></span>
+                <span><%= farm.city %></span>
               </li>
               <li class="list-farm__info-area">
                 <span><%= farm.area %>ha</span>
@@ -27,6 +36,9 @@
                 </span>
               </li>
             </ul>
+            <div class="list-farm__info-message">
+              <%= truncate(farm.message, length: 50, omission: "...") %>
+            </div>
           </div>
         </div>
       </li>

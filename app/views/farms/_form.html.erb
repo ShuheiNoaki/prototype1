@@ -19,10 +19,12 @@
     <%= f.label :area, value="栽培面積" %><br>
     <%= f.text_field :area %><strong>ha</strong>
   </div>
+
   <div class="field">
-    <%= f.label :prefecture, value="都道府県名" %><br>
-    <%= f.text_field :prefecture %>
+    <%= f.label :mst_pref_id, value="都道府県名" %><br>
+    <%= f.collection_select :mst_pref_id, @mst_prefs, :id, :name, include_blank: "選択する" %>
   </div>
+
   <div class="field">
     <%= f.label :city, value="市町村名" %><br>
     <%= f.text_field :city %>
@@ -33,6 +35,12 @@
     <% ff.label{ ff.check_box + ff.text }%>
     <% end %>
   </div>
+
+  <div class="field">
+    <%= f.label :message, value="紹介文" %>
+    <%= f.text_area :message, cols: 100, rows: 10 %>
+  </div>
+
   <div class="actions">
     <%= f.submit value="保存する" %>
   </div>

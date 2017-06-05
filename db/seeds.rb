@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# coding: utf-8
+
+require "csv"
+
+#mst_prefs
+CSV.foreach('db/mst_prefs.csv') do |row|
+  MstPref.create(:id => row[0], :name => row[1])
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531124009) do
+ActiveRecord::Schema.define(version: 20170605174218) do
 
   create_table "crop_notes", force: :cascade do |t|
     t.integer  "crop_id",    limit: 4
@@ -49,12 +49,13 @@ ActiveRecord::Schema.define(version: 20170531124009) do
   end
 
   create_table "farms", force: :cascade do |t|
-    t.string   "farmname",   limit: 255
-    t.string   "area",       limit: 255
-    t.string   "prefecture", limit: 255
-    t.string   "city",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "farmname",    limit: 255
+    t.string   "area",        limit: 255
+    t.string   "city",        limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "message",     limit: 65535
+    t.integer  "mst_pref_id", limit: 4
   end
 
   create_table "fields", force: :cascade do |t|
@@ -73,6 +74,12 @@ ActiveRecord::Schema.define(version: 20170531124009) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "note_id",    limit: 4
+  end
+
+  create_table "mst_prefs", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "notes", force: :cascade do |t|

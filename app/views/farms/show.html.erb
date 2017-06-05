@@ -11,7 +11,7 @@
 
 <p>
   <strong>生産地域：</strong>
-  <%= @farm.prefecture + @farm.city %>
+  <%= @farm.mst_pref.name %><%= @farm.city %>
 </p>
 
 <p>
@@ -20,6 +20,13 @@
 	<%= crop.name %>
 	<% end %>
 </p>
+
+
+<p>
+	<strong>農場から：</strong>
+	<%= @farm.message %>
+</p>
+
 
 <%= link_to '編集', edit_farm_path(@farm) %> |
 <%= link_to '戻る', farms_path %>

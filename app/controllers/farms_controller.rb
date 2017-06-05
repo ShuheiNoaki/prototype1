@@ -5,6 +5,11 @@ class FarmsController < ApplicationController
   # GET /farms.json
   def index
     @farms = Farm.all
+    @mst_prefs = MstPref.all
+    #県名で検索
+    if params[:id].present?
+      @farms = @farms.with_pref.search_by_pref(params[:id])
+    end
   end
 
   # GET /farms/1
@@ -15,10 +20,12 @@ class FarmsController < ApplicationController
   # GET /farms/new
   def new
     @farm = Farm.new
+    @mst_prefs = MstPref.all
   end
 
   # GET /farms/1/edit
   def edit
+    @mst_prefs = MstPref.all
   end
 
   # POST /farms
@@ -69,6 +76,6 @@ class FarmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def farm_params
-      params.require(:farm).permit(:farmname, :area, :prefecture, :city, { :crop_ids => [] })
+      params.require(:farm).permit(:farmname, :area, :mst_pref_id, :prefecture, :city, :message, { :crop_ids => [] })
     end
 end
