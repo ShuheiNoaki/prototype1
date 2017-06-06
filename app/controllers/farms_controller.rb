@@ -6,9 +6,13 @@ class FarmsController < ApplicationController
   def index
     @farms = Farm.all
     @mst_prefs = MstPref.all
+    @crops = Crop.all
     #県名で検索
-    if params[:id].present?
-      @farms = @farms.with_pref.search_by_pref(params[:id])
+    if params[:crop].present?
+      @famrs = Farm.with_crop.search_by_crop(params[:crop])
+    end
+    if params[:mst_pref_id].present?
+      @farms = Farm.search_by_pref(params[:mst_pref_id])
     end
   end
 

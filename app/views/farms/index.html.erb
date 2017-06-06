@@ -5,7 +5,9 @@
 <div class="farm-search">
   <%= form_tag(farms_path, method: "get") do %>
     <%= label_tag :mst_pref_id, "都道府県" %>
-    <%= select_tag 'mst_pref_id', options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
+    <%= select_tag :mst_pref_id, options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
+    <%= label_tag :crop, "栽培品目" %>
+    <%= select_tag :crop , options_from_collection_for_select(@crops, :id, :name), include_blank: '選択する' %>
   <%= submit_tag "検索" %>
   <% end %>
 </div>
