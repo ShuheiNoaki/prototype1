@@ -10,7 +10,7 @@ class Farm < ActiveRecord::Base
 	#都道府県での農家検索
 	scope :search_by_pref, -> (id){ where(mst_pref_id: id)} 
 	#栽培品目での検索
-	scope :with_crop, -> { joins(:crops)}
-	scope :search_by_crop, -> (id){ where(id: id)}
+	scope :with_crop, -> { includes(:crops)}
+	scope :search_by_crop, -> (id){ where(crops: {id: id})}
 
 end

@@ -7,12 +7,20 @@ class FarmsController < ApplicationController
     @farms = Farm.all
     @mst_prefs = MstPref.all
     @crops = Crop.all
-    #県名で検索
-    if params[:crop].present?
-      @famrs = Farm.with_crop.search_by_crop(params[:crop])
+    #栽培品目で検索
+    if params[:id].present?
+      @farms = Farm.with_crop.search_by_crop(params[:id])
     end
-    if params[:mst_pref_id].present?
+    #県名で検索
+    if params[:mst_pref_id] && params[:id].present?
+      @farms = Farm.with_crop.search_by_crop(params[:id]).search_by_pref(params[:mst_pref_id])
+    elsif params[:mst_pref_id].present?
       @farms = Farm.search_by_pref(params[:mst_pref_id])
+    elsif params[:id].present?
+      @farms = Farm.with_crop.search_by_crop(params[:id])
+    else
+      @farms = Farm.all
+      flash[:notice] = "条件に合う農家データは見つかりませんでした。"
     end
   end
 
