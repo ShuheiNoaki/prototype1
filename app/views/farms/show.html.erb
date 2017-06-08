@@ -21,6 +21,13 @@
 	<% end %>
 </p>
 
+<p>
+	<strong>品種：</strong>
+	<% @farm.crop_types.each do |type| %>
+	<%= type.name %>
+	<% end %>
+</p>
+
 
 <p>
 	<strong>農場から：</strong>
