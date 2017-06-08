@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'root/index'
   root to: 'root#index'
 
@@ -7,4 +8,5 @@ Rails.application.routes.draw do
   resources :fields
   resources :farms
   resources :users
+  resources :crops, only: [:show, :index]
 end

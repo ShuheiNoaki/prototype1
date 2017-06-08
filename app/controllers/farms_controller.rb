@@ -20,7 +20,6 @@ class FarmsController < ApplicationController
       @farms = Farm.with_crop.search_by_crop(params[:id])
     else
       @farms = Farm.all
-      flash[:notice] = "条件に合う農家データは見つかりませんでした。"
     end
   end
 

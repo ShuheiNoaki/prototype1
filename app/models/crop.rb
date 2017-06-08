@@ -6,4 +6,8 @@ class Crop < ActiveRecord::Base
 	has_many :notes, through: :crop_notes
 
 	accepts_nested_attributes_for :crop_notes, allow_destroy: true
+
+	#栽培品目での検索
+	scope :with_crop, -> { includes(:crops)}
+	scope :search_by_crop, -> (id){ where(crops: {id: id})}
 end

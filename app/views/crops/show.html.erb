@@ -1,0 +1,38 @@
+<h1><%= @crop.name %>を栽培している農家</h1>
+
+<div class="column-main">
+  <ul class="list-farm-info">
+    <% @farms.each do |farm| %>
+      <li class="list-farm">
+        <div class="list-farm__wrap">
+          <div class="list-farm__header">
+            <%= link_to farm.farmname, farm %>
+          </div>
+          <div class="list-farm__body">
+            <ul class="list-farm__info">
+              <li class="list-farm__info-location">
+                <span><%= farm.mst_pref.name %></span>
+                <span><%= farm.city %></span>
+              </li>
+              <li class="list-farm__info-area">
+                <span><%= farm.area %>ha</span>
+              </li>
+              <li class="list-farm__info-crop">
+                <span>栽培品目</span>
+                <span>
+                  <% farm.crops.each do |crop| %>
+                    <%= crop.name %>
+                  <% end %>
+                </span>
+              </li>
+            </ul>
+            <div class="list-farm__info-message">
+              <%= truncate(farm.message, length: 50, omission: "...") %>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+	
