@@ -1,0 +1,8 @@
+<h1>所在地で探す</h1>
+<ul>
+	<% @mst_prefs.each do |pref| %>
+	<li>
+		<%= link_to pref.name, pref %>
+	</li>
+	<% end %>
+</ul>

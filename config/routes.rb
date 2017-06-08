@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :farms
   resources :users
   resources :crops, only: [:show, :index]
+  resources :mst_prefs, only: [:show, :index]
 end
