@@ -1,4 +1,10 @@
 <h1>栽培品目で探す</h1>
-<% @crops.each do |crop| %>
-	<%= link_to crop.name, crop %>
-<% end %>
+<ul>
+	<% @crops.each do |crop| %>
+	<li>
+		<%= link_to crop.name, crop %>
+	</li>
+	<% end %>
+</ul>
+	
+

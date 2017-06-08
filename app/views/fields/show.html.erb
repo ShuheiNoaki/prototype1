@@ -25,7 +25,6 @@
 <div class="note-block-board">
   <% @notes.each do |note| %>
     <div class="note-block">
-          <h2><%= note.start_date %> ~ <%= note.finished_date %>の記録帳</h2>
           <div class="crop-name">
               <% note.crops.each do |crop| %>
                 <%= crop.name %>
