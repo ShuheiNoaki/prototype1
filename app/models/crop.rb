@@ -10,4 +10,8 @@ class Crop < ActiveRecord::Base
 	#栽培品目での検索
 	scope :with_crop, -> { includes(:crops)}
 	scope :search_by_crop, -> (id){ where(crops: {id: id})}
+
+	#品種での検索
+	scope :with_crop_type, -> { includes(:crop_types)}
+	scope :search_by_crop_type, -> (id){ where(crop_types: {id: id})}
 end

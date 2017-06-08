@@ -1,5 +1,23 @@
 <h1><%= @crop.name %>を栽培している農家</h1>
 
+
+<%= form_tag(crop_path, method: 'get') do %>
+  <%= label_tag :crop_type_id, "品種で絞り込み" %>
+  <%= select_tag :crop_type_id, options_from_collection_for_select(@crop_types, :id, :name), include_blank: '選択する' %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+<%= form_tag(crop_path, method: 'get') do %>
+  <%= label_tag :mst_pref_id, "所在地で絞り込み" %>
+  <%= select_tag :mst_pref_id, options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+
+
+
+
+
 <div class="column-main">
   <ul class="list-farm-info">
     <% @farms.each do |farm| %>
@@ -25,6 +43,14 @@
                   <% end %>
                 </span>
               </li>
+              <li>
+                <% if farm.crop_types.present? %>
+                  <span>品種</span>
+                  <% farm.crop_types.each do |type| %>
+                  <%= type.name %>
+                  <% end %>
+                <% end %>
+              </li>  
             </ul>
             <div class="list-farm__info-message">
               <%= truncate(farm.message, length: 50, omission: "...") %>
