@@ -12,6 +12,9 @@ class Crop < ActiveRecord::Base
 	scope :search_by_crop, -> (id){ where(crops: {id: id})}
 
 	#品種での検索
-	scope :with_crop_type, -> { includes(:crop_types)}
-	scope :search_by_crop_type, -> (id){ where(crop_types: {id: id})}
+	# scope :with_crop_type, -> { includes(:crop_types)}
+	# scope :search_by_crop_type, -> (id){ where(crop_types: {id: id})}
+
+	#県名での検索
+	scope :search_by_pref, -> (id){ where(mst_pref_id: id)} 
 end

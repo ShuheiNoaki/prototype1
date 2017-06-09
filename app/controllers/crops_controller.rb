@@ -11,7 +11,11 @@ class CropsController < ApplicationController
     @mst_prefs = MstPref.all
 
     if params[:crop_type_id].present?
-      @farms = @farms.with_crop_type.search_by_crop_type(params[:crop_type_id])
+      @farms = @farms.includes(:crop_types).where(crop_types: {id: params[:crop_type_id]})
+    end
+
+    if params[:mst_pref_id].present?
+      @farms = @farms.search_by_pref(params[:mst_pref_id])
     end
   end
 
