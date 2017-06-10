@@ -19,8 +19,8 @@ class CropsController < ApplicationController
       @farms = @farms.search_by_pref(params[:mst_pref_id])
     end
 
-    if params[:min_area] && params[:max_area]
-      @farms = @farms.where("area > ? and area < ?", params[:min_area], params[:max_area] )
+    if params[:min_area]&&params[:max_area].present?
+      @farms = @farms.where("area >= ? AND area <= ?", params[:min_area], params[:max_area])
     end
   end
 
