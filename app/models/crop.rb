@@ -11,10 +11,13 @@ class Crop < ActiveRecord::Base
 	scope :with_crop, -> { includes(:crops)}
 	scope :search_by_crop, -> (id){ where(crops: {id: id})}
 
-	#品種での検索
+	#品種での検索（エラーがでちゃう）
 	# scope :with_crop_type, -> { includes(:crop_types)}
 	# scope :search_by_crop_type, -> (id){ where(crop_types: {id: id})}
 
 	#県名での検索
 	scope :search_by_pref, -> (id){ where(mst_pref_id: id)} 
+
+	#耕地面積での検索
+	scope :search_by_area, -> (min, max){ where( "min > ? and max < ?", min, max )}
 end

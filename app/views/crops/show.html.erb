@@ -1,21 +1,29 @@
 <h1><%= @crop.name %>を栽培している農家</h1>
 
-
-<%= form_tag(crop_path, method: 'get') do %>
-  <%= label_tag :crop_type_id, "品種で絞り込み" %>
-  <%= select_tag :crop_type_id, options_from_collection_for_select(@crop_types, :id, :name), include_blank: '選択する' %>
-  <%= submit_tag '検索' %>
-<% end %>
-
-<%= form_tag(crop_path, method: 'get') do %>
-  <%= label_tag :mst_pref_id, "所在地で絞り込み" %>
-  <%= select_tag :mst_pref_id, options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
-  <%= submit_tag '検索' %>
-<% end %>
-
-
-
-
+<ul>
+  <li>
+    <%= form_tag(crop_path, method: 'get') do %>
+      <%= label_tag :crop_type_id, "品種で絞り込み" %>
+      <%= select_tag :crop_type_id, options_from_collection_for_select(@crop_types, :id, :name), include_blank: '選択する' %>
+      <%= submit_tag '検索' %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_tag(crop_path, method: 'get') do %>
+      <%= label_tag :mst_pref_id, "所在地で絞り込み" %>
+      <%= select_tag :mst_pref_id, options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
+      <%= submit_tag '検索' %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_tag(crop_path, method: 'get') do %>
+      <%= label_tag :area, "耕地面積で絞り込み" %>
+      <%= number_field_tag :min_area %>ha以上
+      <%= number_field_tag :max_area %>ha以下
+      <%= submit_tag '検索' %>
+    <% end %>  
+  </li>
+</ul>
 
 
 <div class="column-main">
