@@ -6,28 +6,24 @@
 </p>
 
 <p>
-  <%= @note.content %>
-</p>
-
-<p>
   <strong>栽培品目</strong>
   <% @note.crops.each do |crop| %>
-  	<%= crop.name %>
+    <%= crop.name %>
   <% end %>
 </p>
 
 <p>
   <strong>品種</strong>
   <% @note.crop_types.each do |type| %>
-  	<%= type.name %>
+    <%= type.name %>
   <% end %>
 </p>
 
-<% @memos.each do |memo| %>
-  <strong><%= memo.title %></strong><br>
-  <%= memo.date %><br>
-  <%= memo.detail %>
-<% end %>
+<p>
+  <%= @note.content %>
+</p>
+
+
 
 <%= link_to '記録帳を編集', edit_note_path(@note) %> |
 <%= link_to '戻る', notes_path %>

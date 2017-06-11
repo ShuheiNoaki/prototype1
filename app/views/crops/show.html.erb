@@ -20,7 +20,7 @@
       <%= label_tag :area, "耕地面積で絞り込み" %>
       <%= select_tag :min_area, options_for_select('下限なし' => 0, '5ha' => 5, '10ha' => 10, '50ha' => 50) %>以上
       <%= select_tag :max_area, options_for_select({'5ha' => 5, '10ha' => 10, '50ha' => 50, '上限なし' => 100000}, 100000) %>以下
-      <%= submit_tag '検索' %>
+      <%= submit_tag '検索' %> 
     <% end %>  
   </li>
 </ul>

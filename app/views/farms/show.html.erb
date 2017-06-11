@@ -4,6 +4,15 @@
   <%= @farm.farmname %>
 </h2>
 
+<a href="#">この農家とコンタクトを取る</a>
+
+<p>
+	<strong>タグ：</strong>
+	<ul>
+		<li></li>
+	</ul>
+</p>
+
 <p>
   <strong>栽培面積：</strong>
   <%= @farm.area %>
@@ -26,6 +35,20 @@
 	<% @farm.crop_types.each do |type| %>
 	<%= type.name %>
 	<% end %>
+</p>
+
+<p>
+	<strong>農薬：</strong>
+	表示されない？
+</p>
+
+<p>
+	<strong>使用肥料：</strong>
+	表示されない？
+</p>
+
+<p>
+	<strong></strong>
 </p>
 
 
