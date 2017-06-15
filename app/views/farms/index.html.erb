@@ -4,11 +4,17 @@
 
 <div class="farm-search">
   <%= search_form_for @q, url: farms_path  do |f|%>
-    <%= f.label :farmname_cont, '農場名' %>
+    <%= f.label :farmname_cont, '農場名で検索' %>
     <%= f.search_field :farmname_cont %>
+    <%= f.label :mst_pref_id_eq, '所在地で検索' %>
+    <%= f.collection_select :mst_pref_id_eq, @mst_prefs, :id, :name, :include_blank => '指定なし' %>
+    <%= f.label :crops_id_in, '作物で検索' %>
+    <%= f.collection_select :crops_id_in, @crops, :id, :name, :include_blank => '指定なし' %>
   <%= f.submit '検索' %>
   <% end %>
 </div>
+
+<hr>
 
 <div class="column-main">
   <ul class="list-farm-info">
@@ -48,4 +54,5 @@
 
 <br>
 
-<%= link_to '新規作成', new_farm_path %>
+<%= link_to '新規作成', new_farm_path %>|
+<%= link_to '戻る', :back %>

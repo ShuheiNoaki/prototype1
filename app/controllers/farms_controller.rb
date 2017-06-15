@@ -5,24 +5,9 @@ class FarmsController < ApplicationController
   # GET /farms.json
   def index
     @q = Farm.ransack(params[:q])
-    @farms = @q.result(distinct: true)
-    # @farms = Farm.all
-    # @mst_prefs = MstPref.all
-    # @crops = Crop.all
-    # #栽培品目で検索
-    # if params[:id].present?
-    #   @farms = Farm.with_crop.search_by_crop(params[:id])
-    # end
-    # #県名で検索
-    # if params[:mst_pref_id] && params[:id].present?
-    #   @farms = Farm.with_crop.search_by_crop(params[:id]).search_by_pref(params[:mst_pref_id])
-    # elsif params[:mst_pref_id].present?
-    #   @farms = Farm.search_by_pref(params[:mst_pref_id])
-    # elsif params[:id].present?
-    #   @farms = Farm.with_crop.search_by_crop(params[:id])
-    # else
-    #   @farms = Farm.all
-    # end
+    @mst_prefs = MstPref.all
+    @crops = Crop.all
+    @farms = @q.result.includes(:mst_pref, :crops)
   end
 
   # GET /farms/1
