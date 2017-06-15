@@ -3,12 +3,10 @@
 <h1 class="list-title">農場一覧</h1>
 
 <div class="farm-search">
-  <%= form_tag(farms_path, method: "get") do %>
-    <%= label_tag :mst_pref_id, "都道府県" %>
-    <%= select_tag :mst_pref_id, options_from_collection_for_select(@mst_prefs, :id, :name), include_blank: '選択する' %>
-    <%= label_tag :id, "栽培品目" %>
-    <%= select_tag :id , options_from_collection_for_select(@crops, :id, :name), include_blank: '選択する' %>
-  <%= submit_tag "検索" %>
+  <%= search_form_for @q, url: farms_path  do |f|%>
+    <%= f.label :farmname_cont, '農場名' %>
+    <%= f.search_field :farmname_cont %>
+  <%= f.submit '検索' %>
   <% end %>
 </div>
 

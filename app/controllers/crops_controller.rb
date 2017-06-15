@@ -6,6 +6,7 @@ class CropsController < ApplicationController
   end
 
   def show
+
   	@farms = Farm.with_crop.search_by_crop(params[:id]).order("mst_pref_id ASC")
     @crop_types = CropType.where(crop_id: params[:id])
     @mst_prefs = MstPref.all

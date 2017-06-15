@@ -7,15 +7,8 @@
 <a href="#">この農家とコンタクトを取る</a>
 
 <p>
-	<strong>タグ：</strong>
-	<ul>
-		<li></li>
-	</ul>
-</p>
-
-<p>
-  <strong>栽培面積：</strong>
-  <%= @farm.area %>
+  <strong>総栽培面積：</strong>
+  <%= @farm.area %>ha
 </p>
 
 <p>
@@ -48,6 +41,14 @@
 </p>
 
 <p>
+	<strong>タグ：</strong>
+	<ul>
+		<li></li>
+	</ul>
+</p>
+
+
+<p>
 	<strong></strong>
 </p>
 
@@ -59,4 +60,4 @@
 
 
 <%= link_to '編集', edit_farm_path(@farm) %> |
-<%= link_to '戻る', farms_path %>
+<%= link_to '戻る', :back %>
