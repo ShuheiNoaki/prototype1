@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608155702) do
+ActiveRecord::Schema.define(version: 20170615105115) do
 
   create_table "crop_notes", force: :cascade do |t|
     t.integer  "crop_id",    limit: 4
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170608155702) do
 
   create_table "farms", force: :cascade do |t|
     t.string   "farmname",    limit: 255
-    t.string   "area",        limit: 255
+    t.integer  "area",        limit: 4
     t.string   "city",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
