@@ -4,21 +4,31 @@
 
 <div class="farm-search">
   <%= search_form_for @q, url: farms_path  do |f|%>
-    <%= f.label :farmname_cont, '農場名で検索' %>
-    <%= f.search_field :farmname_cont %>
-    <br>
-    <%= f.label :mst_pref_id_eq, '所在地で検索' %>
-    <%= f.collection_select :mst_pref_id_eq, @mst_prefs, :id, :name, :include_blank => '指定なし' %>
-    <%= f.label :crops_id_in, '作物で検索' %>
-    <%= f.collection_select :crops_id_in, @crops, :id, :name, :include_blank => '指定なし' %>
-    <br>
-    <%= f.label :area_gteq, '耕地面積（最小）' %>
-    <%= f.number_field :area_gteq %>
-    <br>
-    <%= f.label :area_lteq, '耕地面積（最大）' %>
-    <%= f.number_field :area_lteq %>
-    <br>
-  <%= f.submit '検索' %>
+    <ul>
+      <li>
+        <%= f.label :farmname_cont, '農場名で検索' %>
+        <%= f.search_field :farmname_cont %>
+      </li>
+      <li>
+        <%= f.label :mst_pref_id_eq, '所在地で検索' %>
+        <%= f.collection_select :mst_pref_id_eq, @mst_prefs, :id, :name, :include_blank => '指定なし' %>
+      </li>
+      <li>
+        <%= f.label :crops_id_in, '作物で検索' %>
+        <%= f.collection_select :crops_id_in, @crops, :id, :name, :include_blank => '指定なし' %>
+      </li>
+      <li>
+        <%= f.label :area_gteq, '耕地面積（最小）' %>
+        <%= f.number_field :area_gteq %>      
+      </li>
+      <li>
+        <%= f.label :area_lteq, '耕地面積（最大）' %>
+        <%= f.number_field :area_lteq %>
+      </li>
+      <li>
+        <%= f.submit '検索' %>
+      </li>
+    </ul>
   <% end %>
 </div>
 

@@ -34,16 +34,6 @@
                 <%= type.name %>
               <% end %>
           </div>
-          <% note.memos.each do |memo| %>
-          <div class="memo-box">        
-            <div class="memo-box-link">
-              <%= link_to memo.title, memo %>
-              <div class="memo-box-date"> 
-                <%= memo.date %>
-              </div>
-            </div>
-          </div>
-        <% end %>
           <div class="note-detail">
             <%= link_to '詳しく見る', note %>
           </div>

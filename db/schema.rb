@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615105115) do
+ActiveRecord::Schema.define(version: 20170616012650) do
 
   create_table "crop_notes", force: :cascade do |t|
     t.integer  "crop_id",    limit: 4
@@ -74,13 +74,12 @@ ActiveRecord::Schema.define(version: 20170615105115) do
     t.integer  "farm_id",    limit: 4
   end
 
-  create_table "memos", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.date     "date"
-    t.text     "detail",     limit: 65535
+  create_table "messages", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.integer  "farm_id",    limit: 4
+    t.integer  "send_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "note_id",    limit: 4
   end
 
   create_table "mst_prefs", force: :cascade do |t|

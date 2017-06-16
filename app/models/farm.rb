@@ -6,6 +6,7 @@ class Farm < ActiveRecord::Base
 	has_many :farm_crop_types, dependent: :destroy
 	has_many :crop_types, through: :farm_crop_types
 	belongs_to :mst_pref
+	has_many :messages
 
 	accepts_nested_attributes_for :farm_crops, allow_destroy: true
 	accepts_nested_attributes_for :farm_crop_types, allow_destroy: true
